@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author TBD
+ * @author Derek Kedrowski, Eric Hagar
  *
  */
 class EncryptedMessageTest {
@@ -50,4 +50,8 @@ class EncryptedMessageTest {
 		fail("Not yet implemented");
 	}
 
+	 @Test
+	  void test2() {
+	    fail("Not yet implemented");
+	  }
 }

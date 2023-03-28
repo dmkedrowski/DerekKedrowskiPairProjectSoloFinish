@@ -8,6 +8,7 @@ package tdd;
  *
  */
 public class EncryptedMessage {
+  
 
 	private String mEncryptedMessage;
 	/**
