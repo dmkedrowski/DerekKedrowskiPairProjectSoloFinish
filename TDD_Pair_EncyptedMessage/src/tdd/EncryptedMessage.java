@@ -4,7 +4,7 @@
 package tdd;
 
 /**
- * @author TBD
+ * @author Eric Hagar & Derek Kedrowski
  *
  */
 public class EncryptedMessage {
