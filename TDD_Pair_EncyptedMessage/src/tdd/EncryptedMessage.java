@@ -34,7 +34,7 @@ public class EncryptedMessage {
 	
 	public String getMessage() {
 		return mEncryptedMessage;
-	};
+	}
 	
 	public String decryptMessage(String key) {
 		return "";
