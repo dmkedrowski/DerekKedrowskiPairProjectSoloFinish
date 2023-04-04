@@ -17,8 +17,9 @@ public class EncryptedMessage {
 	public EncryptedMessage(String message, String key) {
 		// TODO Auto-generated constructor stub
 		
+	
 		if(validate(message, true) && validate(key, false)) {
-			//encryptedMessage(message, key);
+			encryptMessage(message, key);
 		}
 		else {
 			mEncryptedMessage = null;
@@ -41,22 +42,26 @@ public class EncryptedMessage {
 	
 	private Boolean validate(String data, Boolean allowSpaces) {
 		
-		boolean valid = true;
+		//boolean valid = true;
 		int charHexValue;
 		
-		for(int i = 0; i < data.length(); ++i) {
+		data = data.toLowerCase();
+    System.out.println(data);
+		
+		for(int i = 0; i < data.length(); i++) {
 			charHexValue = (int)data.charAt(i);
-			if(!((charHexValue >= 65 && charHexValue <= 90) || (charHexValue >= 97 && charHexValue <= 122) || (charHexValue == 32 && allowSpaces))) {
-				valid = false;
+			if(!((charHexValue >= 97 && charHexValue <= 122) || (charHexValue == 32 && allowSpaces))) {
+				System.out.println(charHexValue + " , " + data.charAt(i));
+				return false;
 			}
 		}
 		
-		return valid;
+		return true;
 	}
 
 	private void encryptMessage(String message, String key) {
 		
-		if(validate(message, true) && validate(key, false)) {
+//		if(validate(message, true) && validate(key, false)) {
 			
 			String modifiedMessage = message;
 			int charHexValue;
@@ -67,7 +72,7 @@ public class EncryptedMessage {
 				charHexValue = (int)modifiedMessage.charAt(i);
 				
 				if(charHexValue == 32) {
-					modifiedMessage = modifiedMessage.substring(0, i) + '{' + modifiedMessage.substring(i + 1);
+					modifiedMessage = modifiedMessage.substring(0, i) + "{" + modifiedMessage.substring(i + 1);
 				}
 				
 				
@@ -75,18 +80,20 @@ public class EncryptedMessage {
 			
 			int j = 0;
 			
-			for(int i = 0; i < modifiedMessage.length(); ++i) {
-				char newChar = (char)((((int)modifiedMessage.charAt(i) - 97 + key.charAt(j)) % 27) + 97);
+			for(int i = 0; i < modifiedMessage.length(); i++) {
+	
+				char newChar = (char)((((modifiedMessage.charAt(i) - 'a') + (key.charAt(j)-'a')) % 27) + 'a');
+				
 				modifiedMessage = modifiedMessage.substring(0, i) + newChar + modifiedMessage.substring(i + 1);
 				j++;
 				if(j == key.length()) {
 					j = 0;
 				}
 			}
-			
-		}
-		else {
-			mEncryptedMessage = null;
-		}
+			mEncryptedMessage = modifiedMessage;
+//		}
+//		else {
+//			mEncryptedMessage = null;
+//		}
 	}
 }

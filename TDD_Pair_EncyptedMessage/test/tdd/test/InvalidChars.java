@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
  *
  */
 
-class InvalidChars {
+class InvalidChars {  //Not used. all tests moved to EncryptedMessageTest
 
   @Test
   void test() {
