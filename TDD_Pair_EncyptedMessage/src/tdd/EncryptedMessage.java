@@ -7,8 +7,9 @@ package tdd;
  * @author Eric Hagar & Derek Kedrowski
  *
  */
-public class EncryptedMessage {
-  
+public class EncryptedMessage {\
+  //test comment
+
 
 	private String mEncryptedMessage;
 	/**
